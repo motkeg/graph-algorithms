@@ -1,10 +1,12 @@
 class Graph():
     
-    
-    def __init__(self):
+   
+    def __init__(self,name=""):
         self.nodes = {}
         self.edges = {}
         self.Adj = {}
+        self.name=name
+        
         
     def add_node(self,node,name=""):
         self.nodes[node]=name
@@ -20,38 +22,17 @@ class Graph():
     def get_edges(self):
         return self.edges
     
+    def remove_edge(self,e):
+        print "remove" ,e
+        self.edges.pop(e)
+        print 'remove Adj '+ str(e[1])+ " of - " + str(e[0]) 
+        self.Adj[e[0]].remove(e[1])
+    
     def getAdj(self,node,reverse=False):
         if reverse == True:        
             return sorted(self.Adj[node], reverse=True)         
         return self.Adj[node]   
     
      
-    def build_Heap(self):
-        heap= self.get_nodes().copy().keys()
-        min=[heap[0]]
-        
-        def extract_min():
-            temp='infinite'
-            index=0
-            for j in self.getAdj(min[0]):
-                if j in heap:
-                    if temp=='infinite':
-                        temp=self.edges[(min[0],j)]
-                    else:
-                        if temp >  int(self.edges[(min[0],j)]):
-                            temp =  int(self.edges[(min[0],j)])
-                            index=j
-            if index  in heap:
-                            
-                min[0]=index
-            temp='infinite'
-            heap.remove(index)
-            return  index              
-            
-        for e in self.get_edges().keys():
-            heap.append((e,self.edges[e]))
-            
-            
-        #heap.sort(key=lambda tup: tup[1])   
-        return extract_min        
+   
         
