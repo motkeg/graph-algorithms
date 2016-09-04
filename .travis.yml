@@ -3,5 +3,6 @@ python:
  - "2.7.12"
 # command to install dependencies
 #install: "pip install -r requirements.txt"
+install: pip install cProfile,pstats
 # command to run tests
 script: main.py
