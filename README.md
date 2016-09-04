@@ -1,5 +1,8 @@
 # graph-algorithms
-High level algrorithms for computer Science
+High level algrorithms for computer Science  
+
+
+[![Build Status](https://travis-ci.org/motkeg/graph-algorithms.svg?branch=master)](https://travis-ci.org/motkeg/graph-algorithms)
 
 language: `python 2.7`.  
 Realized algorithms:
